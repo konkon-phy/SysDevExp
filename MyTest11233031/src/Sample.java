@@ -21,4 +21,22 @@ public class Sample {
 		return "Hello " + string;
 	}
 
+	/**
+	 * @param x
+	 * @param y
+	 * @return x/y
+	 */
+	public int divide(int x,int y) {
+		return x/y;
+	}
+
+	/**
+	 * @param d
+	 * @param e
+	 * @return
+	 */
+	public double doubledivide(double x, double y) {
+		return x/y;
+	}
+
 }

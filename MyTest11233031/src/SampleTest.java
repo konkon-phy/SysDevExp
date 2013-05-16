@@ -26,5 +26,29 @@ public class SampleTest extends TestCase {
 		//同じになっているかチェック
 		assertEquals(message, sample.getHello("World"));
 	}
-
+	
+	public void testNormalDivide1(){
+		assertEquals(3, sample.divide(3,1));
+		
+	}
+	public void testNormalDivide2(){
+		assertEquals(1, sample.divide(3,2));
+	}
+	
+	public void testZeroDivide(){
+		try{
+			sample.divide(3, 0);
+			fail("Exception does not occur");
+		}catch(Exception e){
+			assertTrue(true);
+		}
+	}
+	
+	public void testDoubleDivide(){
+		assertEquals(3.1, sample.doubledivide(3.1, 1.0), 0.05);
+	}
+	
+	public void testDoubleDivide2(){
+		assertEquals(1.033, sample.doubledivide(3.1,3.0), 0.0005);
+	}
 }
