@@ -1,40 +1,35 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.StringReader;
-
-
-
-/**
- * 
- */
+import java.util.StringTokenizer;
 
 /**
- * @author konkon
+ * @author 11233031
  *
  */
 public class MyDataReader {
-	String str;
-	BufferedReader reader = new BufferedReader(new StringReader(str));
-	
-	//public String readData(String name){
-	//	str = name;
-	//	reader = str;
-	//	StringTokenizer st = new StringTokenizer(name, ":");
-	//	while(st.hasMoreTokens()){
-	//		String token = st.nextToken();
-	//		if(token == name){
-	//			token = st.nextToken();	//取得したトークンがnameと一致するならば
-	//			return token;			//次のトークンを取得して返す
-	//		}else{
-	//			token =st.nextToken();
-	//		}
-	//	}
-	//	return null;
+	private String _str;
+	public MyDataReader(String str){
+	_str = str;
 	}
-
-	//public String readData(String name) {
-	//	StringTokenizer st = new StringTokenizer(name, ":");
-	//	String token = st.nextToken();
-	//	token = st.nextToken();
-	//	return token;
-	//}
-
+	String readData(String name){
+		if(_str != null){
+			BufferedReader br = new BufferedReader(new StringReader(_str));
+			try {
+				while(br.readLine() != null){
+					StringTokenizer st = new StringTokenizer(br.readLine(), ":");
+					while(st.hasMoreTokens() == true){
+						if(st.nextToken() == name){
+							String value = st.nextToken();
+							return value;
+						}
+					}
+				}
+			} catch (IOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+		}
+	return null;
+	}
+}
